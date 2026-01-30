@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4.7%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 7.8%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 7.8%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 4.7%;
+    --secondary: 0 0% 7.8%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 72%;
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 4.7%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 24 100% 50%;
+    --radius: 1.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    @apply bg-[#0B0B0C] text-[#F4F4F4] antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-mono-accent {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-calligraphy {
+  font-family: 'Great Vibes', cursive;
+}
+
+/* Headline styles */
+.headline-xl {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.headline-lg {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+/* Calligraphy text style */
+.text-calligraphy {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Vignette effect */
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(0,0,0,0.4) 100%);
+}
+
+/* Section base */
+.section-pinned {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Card styles */
+.card-rounded {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+/* Stamp styles */
+.stamp {
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-[#FF6A00] text-[#0B0B0C] px-6 py-3 rounded-2xl font-semibold text-sm tracking-wide uppercase transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply bg-[#ff8533] scale-105;
+}
+
+.btn-secondary {
+  @apply bg-transparent border border-[#F4F4F4]/20 text-[#F4F4F4] px-6 py-3 rounded-2xl font-semibold text-sm tracking-wide uppercase transition-all duration-300;
+}
+
+.btn-secondary:hover {
+  @apply bg-[#F4F4F4]/10 border-[#F4F4F4]/40;
+}
+
+/* Price pill */
+.price-pill {
+  @apply bg-[#FF6A00] text-[#0B0B0C] px-4 py-2 rounded-full font-mono-accent font-bold text-sm;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6A00;
+}
+
+/* Image treatment */
+.img-grade {
+  filter: contrast(1.15) saturate(0.85);
+}
+
+/* Gradient overlays */
+.gradient-left {
+  background: linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0) 100%);
+}
+
+.gradient-bottom {
+  background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0) 100%);
+}
+
+/* Review card */
+.review-card {
+  @apply bg-[#141414] border border-white/[0.06] rounded-[28px] p-6;
+}
+
+/* Navigation */
+.nav-link {
+  @apply text-[#F4F4F4] text-sm font-medium transition-colors duration-300;
+}
+
+.nav-link:hover {
+  @apply text-[#FF6A00];
+}
+
+/* Navbar styles */
+.navbar {
+  @apply fixed top-0 left-0 right-0 z-[100] px-[4vw] py-4 flex justify-between items-center transition-all duration-500;
+}
+
+.navbar-clear {
+  @apply bg-transparent;
+}
+
+.navbar-dark {
+  @apply bg-black/40 backdrop-blur-sm;
+}
+
+/* Logo placeholder */
+.logo-placeholder {
+  @apply w-10 h-10 rounded-full bg-[#FF6A00]/20 border-2 border-dashed border-[#FF6A00]/50 flex items-center justify-center;
+}
+
+/* Animation helpers */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Responsive text */
+@media (max-width: 768px) {
+  .headline-xl {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+  
+  .headline-lg {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+}
+
+/* Menu item styles */
+.menu-item {
+  @apply flex justify-between items-center py-3 border-b border-white/10;
+}
+
+.menu-item:last-child {
+  @apply border-b-0;
+}
+
+.menu-category {
+  @apply text-[#FF6A00] font-mono-accent text-sm tracking-widest uppercase mb-4 mt-6;
+}
